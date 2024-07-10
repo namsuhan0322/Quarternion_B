@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using TMPro;   
+using UnityEngine.UI;
+using TMPro;
 
 public class ExDiceRoll : MonoBehaviour
 {
@@ -16,11 +18,32 @@ public class ExDiceRoll : MonoBehaviour
     public TMP_InputField side_Input;
     public TMP_InputField amount_Input;
 
+    public Text totalNumText;
+
     public void RollingDice()
     {
-        // 주사위 굴리는 버튼을 누르면 랜덤으로 숫자가 뜨고 그 숫자의 합을 디버그로 뜬다.
-        int sixDiceNum = Random.Range(1, 6);
-        int twnetyDiceNum = Random.Range(1, 20);
+        // 총 합계를 저장할 변수
+        int totalNum = 0;  
+
+        for (int i = 0; i < dice.Count; i++)
+        {
+            // 주사위를 굴렸을때 나온 숫자를 저장할 변수
+            int diceNum = 0;
+            if (dice[i] == Side.Six)    // dice[i]가 6면체일 때
+            {
+                diceNum = Random.Range(1, 7);   // diceNum을 1 ~ 6 사이의 랜덤한 숫자를 지정
+                Debug.Log($"6면체 : {diceNum}");
+            }
+            else if (dice[i] == Side.Twenty)    /// dice[i]가 20면체일 때
+            {
+                diceNum = Random.Range(1, 21);  // diceNum을 1 ~ 20 사이의 랜덤한 숫자를 지정
+                Debug.Log($"20면체 : {diceNum}");
+            }
+            totalNum += diceNum;    // 총합계에 굴려서 나온 숫자를 더함
+        }
+
+        totalNumText.text = $"총 합계: {totalNum}";
+        //Debug.Log("총 합계: " + totalNum);
     }
 
     public void AddDice()                                               // 주사위를 추가하는 함수

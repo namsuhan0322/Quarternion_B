@@ -11,16 +11,16 @@ public class ExInputField : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log($"ÀÔ·ÂµÈ ¹®ÀÚ¿­ : {GetStringFromInputField(inputField)}");
+            Debug.Log($"ì…ë ¥ëœ ë¬¸ìì—´ : {GetStringFromInputField(inputField)}");
         }
     }
 
     public string GetStringFromInputField(TMP_InputField inputField)
     {
-        // inputField°¡ ºñ¾îÀÖ°Å³ª ¹®ÀÚ¿­ÀÌ ºñ¾îÀÖÀ» °æ¿ì
+        // inputFieldê°€ ë¹„ì–´ìˆê±°ë‚˜ ë¬¸ìì—´ì´ ë¹„ì–´ìˆì„ ê²½ìš°
         if (inputField == null || inputField.text == null || inputField.text == "")
         {
-            // Debug.LogWarning("inputField°¡ ÀÌ¹öÀÖ°Å³ª ¹®ÀÚ¿­ÀÌ ºñ¾îÀÖ½À´Ï´Ù.")
+            // Debug.LogWarning("inputFieldê°€ ì´ë²„ìˆê±°ë‚˜ ë¬¸ìì—´ì´ ë¹„ì–´ìˆìŠµë‹ˆë‹¤.")
             return null;
         }
 
