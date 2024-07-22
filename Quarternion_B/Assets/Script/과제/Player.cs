@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
 
     void Die()
     {
+        GameManager.instance.EndGame();
         Destroy(gameObject);
     }
 }
